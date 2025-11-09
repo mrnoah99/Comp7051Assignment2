@@ -22,16 +22,20 @@ public class MazeCreator : MonoBehaviour
     private MazeCell[,] mazeGrid;
     private InputActions inputActions;
     private InputAction interact;
+    private InputAction reset;
     private bool disableCollision = false;
+    private float runtime = 0;
 
     IEnumerator Start()
-    { // Randomly selects Start and End locations, positions Player at the Start.
-
+    {
+        // Used for handling the walk-through-walls cheat and the reset buttons.
         inputActions = new();
         interact = inputActions.Player.Interact;
-        interact.performed += ToggleCollision;
         interact.Enable();
+        reset = inputActions.Player.Reset;
+        reset.Enable();
 
+        // Fills out the entire maze area with the wall segments.
         mazeGrid = new MazeCell[mazeWidth, mazeDepth];
         for (int i = 0; i < mazeWidth; i++)
         {
@@ -41,6 +45,7 @@ public class MazeCreator : MonoBehaviour
             }
         }
 
+        // Randomly selects Start and End locations, positions Player at the Start.
         int start_x = Random.Range(0, mazeWidth);
         mazeGrid[start_x, 0].ClearSouthWall();
         entranceLoc.transform.position = new Vector3(start_x, 0, 0);
@@ -51,6 +56,7 @@ public class MazeCreator : MonoBehaviour
 
         playerRef.transform.position = new Vector3(start_x, 1, 0);
 
+        // Starts generating the maze
         yield return GenerateMaze(null, mazeGrid[start_x, 0]);
     }
 
@@ -59,11 +65,13 @@ public class MazeCreator : MonoBehaviour
         current.Visit();
         ClearWalls(previous, current);
 
+        // Used only to make the maze be able to generate over time instead of instantly, can be removed/commented
+        // out later if we don't want it.
         yield return new WaitForSeconds(0.025f);
 
         MazeCell nextCell;
 
-        do
+        do // As long as there are any available spaces, keep randomly selecting neighbours to break walls between.
         {
             nextCell = GetNextUnvisited(current);
 
@@ -84,6 +92,7 @@ public class MazeCreator : MonoBehaviour
         return unvisitedCells.OrderBy(_ => Random.Range(1, 10)).FirstOrDefault();
     }
     
+    // Returns all cells neighbouring the one currently being worked on that have not yet been visited by the generator.
     private IEnumerable<MazeCell> GetAllUnvisitedNeighbour(MazeCell current)
     {
         int x = (int)current.transform.position.x;
@@ -93,7 +102,7 @@ public class MazeCreator : MonoBehaviour
         {
             var cellToEast = mazeGrid[x + 1, z];
 
-            if (!cellToEast.isVisited)
+            if (!cellToEast.IsVisited)
             {
                 yield return cellToEast;
             }
@@ -103,7 +112,7 @@ public class MazeCreator : MonoBehaviour
         {
             var cellToWest = mazeGrid[x - 1, z];
 
-            if (!cellToWest.isVisited)
+            if (!cellToWest.IsVisited)
             {
                 yield return cellToWest;
             }
@@ -113,7 +122,7 @@ public class MazeCreator : MonoBehaviour
         {
             var cellToNorth = mazeGrid[x, z + 1];
 
-            if (!cellToNorth.isVisited)
+            if (!cellToNorth.IsVisited)
             {
                 yield return cellToNorth;
             }
@@ -123,13 +132,14 @@ public class MazeCreator : MonoBehaviour
         {
             var cellToSouth = mazeGrid[x, z - 1];
 
-            if (!cellToSouth.isVisited)
+            if (!cellToSouth.IsVisited)
             {
                 yield return cellToSouth;
             }
         }
     }
 
+    // Handles clearing walls between the previous and current cell.
     private void ClearWalls(MazeCell previous, MazeCell current)
     {
         if (previous == null)
@@ -168,7 +178,9 @@ public class MazeCreator : MonoBehaviour
         }
     }
 
-    private void ToggleCollision(InputAction.CallbackContext callbackContext)
+    // Toggles collision of the walls so that the player can walk through them. The enemy shouldn't be allowed
+    // to path through the walls when in this state in case it gets stuck.
+    private void ToggleCollision()
     {
         disableCollision = !disableCollision;
         if (disableCollision)
@@ -177,18 +189,42 @@ public class MazeCreator : MonoBehaviour
             {
                 for (int j = 0; j < mazeDepth; j++)
                 {
-                    mazeGrid[i, j].GetComponent<Collider>().enabled = false;
+                    mazeGrid[i, j].DisableCollision();
                 }
             }
-        } else
+        }
+        else
         {
             for (int i = 0; i < mazeWidth; i++)
             {
                 for (int j = 0; j < mazeDepth; j++)
                 {
-                    mazeGrid[i, j].GetComponent<Collider>().enabled = true;
+                    mazeGrid[i, j].EnableCollision();
                 }
             }
+        }
+    }
+
+    // Helper function for resetting the player and enemy positions back to where they started.
+    private void ResetPositions()
+    {
+        playerRef.transform.SetPositionAndRotation(entranceLoc.transform.position, entranceLoc.transform.rotation);
+    }
+    
+    // Adding the functions to *action*.performed wasn't working for some reason, so I am just using this. Effectively
+    // does the same thing.
+    void FixedUpdate()
+    {
+        runtime += Time.fixedDeltaTime;
+        if (interact.IsPressed() && runtime >= 0.4)
+        {
+            runtime = 0;
+            ToggleCollision();
+        }
+
+        if (reset.IsPressed() && runtime >= 0.4)
+        {
+            ResetPositions();
         }
     }
 }

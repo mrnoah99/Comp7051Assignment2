@@ -1,14 +1,22 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float xSens = 30;
-    public float ySens = 30;
-    public bool invertX = false;
-    public bool invertY = false;
-    public int moveSpeed = 25;
+    [SerializeField]
+    private float xSens = 30;
+    [SerializeField]
+    private float ySens = 30;
+    [SerializeField]
+    private bool invertX = false;
+    [SerializeField]
+    private bool invertY = false;
+    [SerializeField]
+    private int moveSpeed = 25;
+    [SerializeField]
+    private GameObject winText;
 
     public Transform orientation;
 
@@ -31,6 +39,9 @@ public class PlayerController : MonoBehaviour
         lookMouse.Enable();
         lookController = inputActions.Player.LookController;
         lookController.Enable();
+
+        // Hide win text until the user wins the game.
+        winText.SetActive(false);
     }
 
     void FixedUpdate()
@@ -38,7 +49,7 @@ public class PlayerController : MonoBehaviour
         // Handles player rotation controls
         Vector2 lookMouseVal = lookMouse.ReadValue<Vector2>();
         Vector2 lookControllerVal = lookController.ReadValue<Vector2>();
-        
+
         float mouseX = lookMouseVal.x;
         if (Math.Abs(lookControllerVal.x) > Math.Abs(lookMouseVal.x)) mouseX = lookControllerVal.x * 10;
         mouseX = mouseX * Time.fixedDeltaTime * xSens * -1;
@@ -47,7 +58,7 @@ public class PlayerController : MonoBehaviour
         float mouseY = lookMouseVal.y;
         if (Math.Abs(lookControllerVal.y) > Math.Abs(lookMouseVal.y)) mouseY = lookControllerVal.y * 10;
         mouseY = mouseY * Time.fixedDeltaTime * ySens;
-        
+
         if (invertX) mouseX *= -1;
         if (invertY) mouseY *= -1;
 
@@ -55,7 +66,7 @@ public class PlayerController : MonoBehaviour
         yRotation -= mouseX;
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90, 90);
-        
+
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
         orientation.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 
@@ -72,5 +83,18 @@ public class PlayerController : MonoBehaviour
         float lockedY = Mathf.Clamp(rb.linearVelocity.y, -1, 1);
         float lockedZ = Mathf.Clamp(rb.linearVelocity.z, -1, 1);
         rb.linearVelocity = new Vector3(lockedX, lockedY, lockedZ);
+    }
+
+    private void DisplayWinText()
+    {
+        winText.SetActive(true);
+    }
+    
+    void OnTriggerEnter(Collider other)
+    { // Used only for displaying the win text when the player exits the maze.
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            DisplayWinText();
+        }
     }
 }
