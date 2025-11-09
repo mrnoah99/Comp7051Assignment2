@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,7 +17,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private InputActions inputActions;
     private InputAction movement;
-    private InputAction look;
+    private InputAction lookMouse;
+    private InputAction lookController;
 
     void Start()
     { // Lock cursor, get components relevant to player control.
@@ -25,15 +27,27 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         movement = inputActions.Player.Move;
         movement.Enable();
-        look = inputActions.Player.Look;
-        look.Enable();
+        lookMouse = inputActions.Player.LookMouse;
+        lookMouse.Enable();
+        lookController = inputActions.Player.LookController;
+        lookController.Enable();
     }
 
     void FixedUpdate()
     { // All of this code comes from the example done here: https://www.youtube.com/watch?v=f473C43s8nE
         // Handles player rotation controls
-        float mouseX = look.ReadValue<Vector2>().x * Time.fixedDeltaTime * xSens * -1;
-        float mouseY = look.ReadValue<Vector2>().y * Time.fixedDeltaTime * xSens;
+        Vector2 lookMouseVal = lookMouse.ReadValue<Vector2>();
+        Vector2 lookControllerVal = lookController.ReadValue<Vector2>();
+        
+        float mouseX = lookMouseVal.x;
+        if (Math.Abs(lookControllerVal.x) > Math.Abs(lookMouseVal.x)) mouseX = lookControllerVal.x * 10;
+        mouseX = mouseX * Time.fixedDeltaTime * xSens * -1;
+
+
+        float mouseY = lookMouseVal.y;
+        if (Math.Abs(lookControllerVal.y) > Math.Abs(lookMouseVal.y)) mouseY = lookControllerVal.y * 10;
+        mouseY = mouseY * Time.fixedDeltaTime * ySens;
+        
         if (invertX) mouseX *= -1;
         if (invertY) mouseY *= -1;
 
@@ -41,15 +55,22 @@ public class PlayerController : MonoBehaviour
         yRotation -= mouseX;
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90, 90);
+        
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
         orientation.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 
         // Handles movement input
         Vector2 input = movement.ReadValue<Vector2>();
         Vector3 moveDirection = input.y * moveSpeed * transform.forward + input.x * moveSpeed * transform.right;
-        
-        if (movement.enabled) { // Always active but will be turned off at some point so the check is used to stop the player from controlling when we don't want them to.
+
+        if (movement.enabled)
+        { // Always active but will be turned off at some point so the check is used to stop the player from controlling when we don't want them to.
             rb.AddForce(moveDirection, ForceMode.Force);
         }
+        // Limit the player's maximum velocity
+        float lockedX = Mathf.Clamp(rb.linearVelocity.x, -1, 1);
+        float lockedY = Mathf.Clamp(rb.linearVelocity.y, -1, 1);
+        float lockedZ = Mathf.Clamp(rb.linearVelocity.z, -1, 1);
+        rb.linearVelocity = new Vector3(lockedX, lockedY, lockedZ);
     }
 }
