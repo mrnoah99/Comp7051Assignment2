@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
+using Unity.AI.Navigation;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
@@ -22,6 +23,8 @@ public class MazeCreator : MonoBehaviour
     private GameObject entranceLoc;
     [SerializeField]
     private GameObject exitLoc;
+    [SerializeField]
+    private NavMeshSurface surface;
 
     private MazeCell[,] mazeGrid;
     private InputActions inputActions;
@@ -68,6 +71,8 @@ public class MazeCreator : MonoBehaviour
 
         // Starts generating the maze
         yield return GenerateMaze(null, mazeGrid[start_x, 0]);
+        
+        surface.BuildNavMesh(); 
     }
 
     private IEnumerator GenerateMaze(MazeCell previous, MazeCell current)

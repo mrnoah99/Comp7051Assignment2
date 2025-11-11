@@ -4,7 +4,8 @@ using UnityEngine.AI;
 // Credit: I followed this tutorial for the enemy AI movement here https://www.youtube.com/watch?v=UjkSFoLxesw
 public class EnemyAIController : MonoBehaviour
 {
-    public NavMeshAgent agent;
+    [SerializeField]
+    private NavMeshAgent agent;
     private Animator animator;
 
     public Vector3 walkPoint;
@@ -15,6 +16,8 @@ public class EnemyAIController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        
+
     }
 
     // Update is called once per frame
