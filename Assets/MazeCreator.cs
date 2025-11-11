@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class MazeCreator : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class MazeCreator : MonoBehaviour
     private MazeCell wallSegment;
     [SerializeField]
     private GameObject playerRef;
+    [SerializeField] 
+    private GameObject enemyRef;
     [SerializeField]
     private int mazeWidth = 11;
     [SerializeField]
@@ -25,7 +29,7 @@ public class MazeCreator : MonoBehaviour
     private InputAction reset;
     private bool disableCollision = false;
     private float runtime = 0;
-
+    
     IEnumerator Start()
     {
         // Used for handling the walk-through-walls cheat and the reset buttons.
@@ -34,6 +38,9 @@ public class MazeCreator : MonoBehaviour
         interact.Enable();
         reset = inputActions.Player.Reset;
         reset.Enable();
+        
+        // Spawn EnemyAI prefab into maze
+        Instantiate(enemyRef, Vector3.zero, Quaternion.identity);
 
         // Fills out the entire maze area with the wall segments.
         mazeGrid = new MazeCell[mazeWidth, mazeDepth];
@@ -55,6 +62,9 @@ public class MazeCreator : MonoBehaviour
         exitLoc.transform.position = new Vector3(end_x, 0, mazeDepth);
 
         playerRef.transform.position = new Vector3(start_x, 1, 0);
+        
+        // Randomly positions Enemy at the end
+        enemyRef.transform.position = new Vector3(end_x, 1, mazeDepth);
 
         // Starts generating the maze
         yield return GenerateMaze(null, mazeGrid[start_x, 0]);
@@ -209,6 +219,7 @@ public class MazeCreator : MonoBehaviour
     private void ResetPositions()
     {
         playerRef.transform.SetPositionAndRotation(entranceLoc.transform.position, entranceLoc.transform.rotation);
+        enemyRef.transform.SetPositionAndRotation(exitLoc.transform.position, exitLoc.transform.rotation);
     }
     
     // Adding the functions to *action*.performed wasn't working for some reason, so I am just using this. Effectively

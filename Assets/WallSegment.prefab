@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4497702642759389764}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SouthSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4497702642759389764
 Transform:
@@ -48,12 +48,12 @@ GameObject:
   - component: {fileID: 7587734011398509732}
   - component: {fileID: 1576908847706567236}
   - component: {fileID: 9199583489518320852}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8420556625689956314
 Transform:
@@ -157,12 +157,12 @@ GameObject:
   - component: {fileID: 8697029963943367392}
   - component: {fileID: 603778011525140550}
   - component: {fileID: 7208706097825703091}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7903992859549568416
 Transform:
@@ -266,12 +266,12 @@ GameObject:
   - component: {fileID: 6788713801182871405}
   - component: {fileID: 4962132219050891591}
   - component: {fileID: 1841967156708368277}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: North
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1149625047530271171
 Transform:
@@ -375,12 +375,12 @@ GameObject:
   - component: {fileID: 5001477503478425181}
   - component: {fileID: 7310905692716409848}
   - component: {fileID: 2548830839723265180}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: East
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6929881111823522836
 Transform:
@@ -481,12 +481,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 892108599219409282}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WestSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &892108599219409282
 Transform:
@@ -520,12 +520,12 @@ GameObject:
   - component: {fileID: 8437546668286977435}
   - component: {fileID: 7823715659650751085}
   - component: {fileID: 8752574298021636923}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: West
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2097085381249307189
 Transform:
@@ -629,12 +629,12 @@ GameObject:
   - component: {fileID: 4209644231547462199}
   - component: {fileID: 7881472009764218426}
   - component: {fileID: 2227675779761335201}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3051014766391323746
 Transform:
@@ -738,12 +738,12 @@ GameObject:
   - component: {fileID: 1770568107666856991}
   - component: {fileID: 3984072406316146784}
   - component: {fileID: 3738592282086631704}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: North
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6005572067093468713
 Transform:
@@ -847,12 +847,12 @@ GameObject:
   - component: {fileID: 7121336491497813728}
   - component: {fileID: 4457882796872215671}
   - component: {fileID: 3457790777448537741}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &385234448244495938
 Transform:
@@ -956,12 +956,12 @@ GameObject:
   - component: {fileID: 1108769612902960669}
   - component: {fileID: 6187582609004738487}
   - component: {fileID: 1317708295400529924}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: North
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4497181282640292750
 Transform:
@@ -1065,12 +1065,12 @@ GameObject:
   - component: {fileID: 2289622795644322195}
   - component: {fileID: 739825908749680749}
   - component: {fileID: 3112795772213791599}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: East
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8892819253347319126
 Transform:
@@ -1174,12 +1174,12 @@ GameObject:
   - component: {fileID: 4099795216126419932}
   - component: {fileID: 5310615589304629860}
   - component: {fileID: 5215707512250610122}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &641924623997234450
 Transform:
@@ -1283,12 +1283,12 @@ GameObject:
   - component: {fileID: 8884470437066214881}
   - component: {fileID: 1301667332708060312}
   - component: {fileID: 4751974087702695707}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4100818190410848577
 Transform:
@@ -1392,12 +1392,12 @@ GameObject:
   - component: {fileID: 7604214266701980632}
   - component: {fileID: 608534104535993618}
   - component: {fileID: 7746861505185950645}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: West
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4305500765054233898
 Transform:
@@ -1501,12 +1501,12 @@ GameObject:
   - component: {fileID: 6226548176570755457}
   - component: {fileID: 2471312994725507749}
   - component: {fileID: 2646222018420565712}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: West
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1932389878040899902
 Transform:
@@ -1610,12 +1610,12 @@ GameObject:
   - component: {fileID: 5363722809972296320}
   - component: {fileID: 6302190235190224060}
   - component: {fileID: 6305789057848570567}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: West
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5802784885405767135
 Transform:
@@ -1719,12 +1719,12 @@ GameObject:
   - component: {fileID: 1779333227402717814}
   - component: {fileID: 5477782194526993171}
   - component: {fileID: 3940343832299242927}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &534498628533485438
 Transform:
@@ -1826,12 +1826,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3692514929446953638}
   - component: {fileID: 5599209142195642699}
-  m_Layer: 0
+  - component: {fileID: 6270567507338499249}
+  - component: {fileID: 8403816145994712878}
+  m_Layer: 3
   m_Name: WallSegment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3692514929446953638
 Transform:
@@ -1870,6 +1872,48 @@ MonoBehaviour:
   northWall: {fileID: 8068947164478454641}
   southWall: {fileID: 219084985834569895}
   unvisitedBlock: {fileID: 7668036556603924714}
+--- !u!114 &6270567507338499249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5043933639803457652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: 00000000
+--- !u!64 &8403816145994712878
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5043933639803457652}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &5613899595440111759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,12 +1926,12 @@ GameObject:
   - component: {fileID: 1557857276710144628}
   - component: {fileID: 4699009426697296261}
   - component: {fileID: 4254042628325727044}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: East
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &254139544014743967
 Transform:
@@ -1991,12 +2035,12 @@ GameObject:
   - component: {fileID: 1537202483230366322}
   - component: {fileID: 2472516386075864119}
   - component: {fileID: 2407142380806157737}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: East
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1928698059538319665
 Transform:
@@ -2097,12 +2141,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1226983118238106111}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EastSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1226983118238106111
 Transform:
@@ -2136,12 +2180,12 @@ GameObject:
   - component: {fileID: 8583276940792884089}
   - component: {fileID: 8097513544519579648}
   - component: {fileID: 676186570057115500}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: North
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &825985600276587108
 Transform:
@@ -2245,12 +2289,12 @@ GameObject:
   - component: {fileID: 6253496902648695055}
   - component: {fileID: 9064200484029698446}
   - component: {fileID: 8523297247033758599}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Unvisited Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &9011076948493766568
 Transform:
@@ -2353,12 +2397,12 @@ GameObject:
   - component: {fileID: 7466474870814522454}
   - component: {fileID: 5283586961483207266}
   - component: {fileID: 2154234384708983332}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6574608894033297310
 Transform:
@@ -2459,12 +2503,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3868606641862410908}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NorthSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3868606641862410908
 Transform:
